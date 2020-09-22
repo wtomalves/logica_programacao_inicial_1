@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Adivinhação</title>
+</head>
+<body>
+  <script>
+    function pulaLinha(){
+      document.write("<br><br>")
+
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function sorteia(n) {
+      var numeroPensado = Math.round(Math.random() * n);
+      return numeroPensado
+    }
+
+    var numeroPensado = sorteia(10);
+    var tentativas = 3
+    while (tentativas >= 1){
+      var chute = parseInt(prompt("Digite seu chute: "))
+      if (chute === numeroPensado) {
+        alert("Você aceitou!");
+        mostra(tentativas + "º Voce Acertou");
+        tentativas = 0
+      } else if (chute > numeroPensado) {
+        alert("Voce errou, seu chute foi maior que o número pensado. Voce tem " + tentativas + " tentativas.");
+        mostra(tentativas + "º Voce errou")
+
+      } else {
+        alert("Voce errou, seu chute foi menor que o número pensado. Voce tem " + tentativas + " tentativas.");
+        mostra(tentativas + "º Voce errou")
+
+      }
+      tentativas -= 1
+
+    }
+    mostra("Fim")
+
+  </script>
+</body>
+</html>

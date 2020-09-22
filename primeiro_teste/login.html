@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login e Senha</title>
+</head>
+<body>
+  <script>
+    function pulaLinha() {
+      document.write("<br>");
+  }
+
+  function mostra(frase) {
+
+      document.write(frase);
+      pulaLinha();
+  }
+
+    var loginCadastrado = "alura";
+    var senhaCadastrada = "alura321";
+
+    var loginInformado = prompt("Informe seu login");
+    var senhaInformada = prompt("Informe sua senha");
+
+    var contador = 3
+    while (contador >= 1) {
+      if (contador == 1) {
+          alert("Você excedeu todas as tentativas. Por favor, contate o suporte Alura e solicite o desbloqueio de sua senha.")
+          contador = 0
+      } else if( loginCadastrado == loginInformado && senhaCadastrada == senhaInformada ) {
+        alert("Bem-vindo ao sistema " + loginInformado);
+        contador = 0
+      } else {
+        contador -= 1;
+        alert("Login inválido. Você tem mais " + contador + " tantativa(s)");
+        var loginInformado = prompt("Informe seu login");
+        var senhaInformada = prompt("Informe sua senha");
+      }
+
+    }
+
+    mostra("Fim")
+</script>
+
+</body>
+</html>

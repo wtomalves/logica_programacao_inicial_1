@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivinhe utilizando Arrays</title>
+</head>
+<body>
+  <input type="text">
+  <input type="button" value="Compare com o meu segredo" onclick="play()">
+  <script>
+      function sorteia() {
+        return Math.round(Math.random() * 10);
+      }
+
+      function sorteiaNumeros(quantidade) {
+        var segredos  = [];
+        var numero = 1;
+
+        while (numero <= quantidade){
+          var numeroAleatorio = sorteia();
+
+          if (numeroAleatorio !== 0) {
+            var achou = false;
+
+            for (var pos = 0; pos <= segredos.length; pos += 1){
+              if (segredos[pos] == numeroAleatorio) {
+                achou == true;
+                break
+              }
+            }
+            if (achou == false) {
+              segredos.push(numeroAleatorio);
+              numero += 1;
+            }
+          }
+
+        }
+        return segredos;
+      }
+
+
+      function play() {
+        var achou = false;
+        for (var pos = 0; pos < segredos.length; pos += 1) {
+          if (entrada.value == segredos[pos]) {
+            alert("Você acertou!");
+            achou = true;
+            break
+          }
+
+        }
+        if (achou == false) {
+          alert("Você errou")
+        }
+        entrada.value = "";
+        entrada.focus();
+      }
+
+      var segredos = sorteiaNumeros(8);
+      console.log(segredos)
+      var entrada = document.querySelector("input");
+      entrada.focus();
+    </script>
+</body>
+</html>

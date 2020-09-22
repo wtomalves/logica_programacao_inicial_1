@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receita de Bolo</title>
+</head>
+<body>
+  <script>
+    var ingredientes = [];
+
+    var quantidade = parseInt(prompt("Quantos ingredientes você vai adicionar?"));
+
+    var contador = 1;
+
+    while( contador <= quantidade) {
+
+        var achou = false;
+        var ingrediente = prompt("Informe o ingrediente " + contador);
+
+        for (var pos = 0; pos <= ingredientes.length; pos += 1) {
+          if (ingredientes[pos] == ingrediente){
+            achou = true;
+            break
+          }
+        }
+
+        if (achou == false){
+          ingredientes.push(ingrediente);
+          contador++;
+        }
+
+    }
+
+    console.log(ingredientes);
+</script>
+
+</body>
+</html>

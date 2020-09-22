@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMC</title>
+</head>
+<body>
+<script>
+    function pulaLinha() {
+        document.write("<br>")
+    }
+
+    function mostra(frase) {
+        document.write(frase)
+        pulaLinha();
+    }
+
+    function calculaImc (peso, altura) {
+        var imc = peso / (altura * altura);
+        return imc;
+
+    }
+    /*
+    var imcTom = calculaImc(115, 1.74);
+    var imcAmigo = calculaImc(73, 1.63);
+
+    mostra("Seu indece de massa corporea de Tom é de " + Math.round(imcTom));
+    mostra("Seu indece de massa corporea Amigo é de " + Math.round(imcAmigo));
+
+    var altuaInformada = 73;
+    var pesoInformado = 1.71
+    var imc = calculaImc(altuaInformada, pesoInformado)
+    document.write("O IMC calculado é " + imc )
+
+
+    */
+    var nome = prompt("Qual é o seu nome? ");
+    var peso = prompt("Informe seu peso: ");
+    var altura = prompt("Informe sua altura: ");
+    var indiceCorporal = calculaImc(peso, altura);
+    mostra(nome + ", seu indice de massa corporea é de " + Math.round(indiceCorporal));
+
+    if (indiceCorporal < 18.5) {
+        mostra("IMC está abaixo da média considerado normal ao seu peso.");
+    }
+
+     else if (indiceCorporal < 30) {
+        mostra("IMC considerado normal")
+    }
+
+    else if (indiceCorporal < 40) {
+        mostra("IMC acima da normalidade em grau de sobrepeso e/ou obesidade.");
+    }
+
+    else if (indiceCorporal > 41) {
+        mostra("IMC em grau de Obesidade mórbida.");
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
